@@ -8,7 +8,7 @@ namespace RestaurantReservationSystem.Controllers
     {
         public IActionResult Index()
         {
-            return View("~/Views/Home/Home.cshtml");
+            return new ViewResult { ViewName = "~/Views/Home/Home.cshtml" };
         }
     }
 }
