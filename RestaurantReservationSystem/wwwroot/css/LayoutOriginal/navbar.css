@@ -1,0 +1,59 @@
+﻿/* ============ NAVBAR STYLING ============ */
+.foodzero-navbar {
+    background-color: #404924;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.navbar-logo .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-logo .logo-icon {
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.navbar-logo .logo-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.navbar-nav-items {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-item {
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 15px;
+    padding: 8px 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .nav-item:hover {
+        color: #ffffff;
+        opacity: 0.8;
+    }

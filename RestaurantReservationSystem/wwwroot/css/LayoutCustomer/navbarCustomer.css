@@ -1,0 +1,214 @@
+﻿/* ============ CUSTOMER NAVBAR STYLING ============ */
+.foodzero-navbar-customer {
+    background-color: #404924;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-customer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.navbar-logo .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-logo .logo-icon {
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.navbar-logo .logo-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.navbar-right-items {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* ============ BOOKING BUTTON ============ */
+.booking-button {
+    padding: 10px 25px;
+    background-color: white;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+    .booking-button:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+/* ============ USER DROPDOWN ============ */
+.user-dropdown {
+    position: relative;
+}
+
+.user-avatar-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 45px;
+    height: 45px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+}
+
+.user-avatar-btn:hover .user-avatar {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* ============ USER MENU ============ */
+.user-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: #2d3918;
+    min-width: 220px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 8px 0;
+    pointer-events: none;
+}
+
+    .user-menu.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+.user-menu-item {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+    .user-menu-item:hover {
+        background-color: #1f2810;
+    }
+
+    .user-menu-item.logout-item {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffcccc;
+    }
+
+        .user-menu-item.logout-item:hover {
+            background-color: #8b3838;
+        }
+
+    .user-menu-item.delete-item {
+        color: #ffcccc;
+    }
+
+        .user-menu-item.delete-item:hover {
+            background-color: #8b3838;
+        }
+
+/* ============ CUSTOMER NAVBAR RESPONSIVE ============ */
+@media (max-width: 768px) {
+    .navbar-customer-container {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+
+    .navbar-right-items {
+        flex-wrap: wrap;
+        gap: 15px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .booking-button {
+        padding: 8px 20px;
+        font-size: 13px;
+        flex: 1;
+        text-align: center;
+    }
+
+    .user-menu {
+        right: -10px;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo .logo-text {
+        font-size: 20px;
+    }
+
+    .navbar-right-items {
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .booking-button {
+        padding: 6px 15px;
+        font-size: 12px;
+        flex: 1;
+    }
+
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .user-menu {
+        min-width: 160px;
+        right: -20px;
+    }
+
+    .user-menu-item {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+}

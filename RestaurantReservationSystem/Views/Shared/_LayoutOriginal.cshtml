@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RestaurantReservationSystem</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RestaurantReservationSystem.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/LayoutOriginal/dropdownMenu.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/LayoutOriginal/footer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/LayoutOriginal/navbar.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="foodzero-navbar">
+            <div class="navbar-container">
+                <!-- Logo FoodZero -->
+                <div class="navbar-logo">
+                    <a href="/" class="logo-link">
+                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Fork icon -->
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" />
+                            <path d="M30 70 L30 30 M30 35 Q30 25 40 25 M30 35 Q30 25 50 25 M50 70 L50 30 M50 35 Q50 25 60 25 M50 35 Q50 25 70 25 M70 70 L70 30" stroke="currentColor" stroke-width="2" fill="none" />
+                        </svg>
+                        <span class="logo-text">FoodZero</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Items -->
+                <div class="navbar-nav-items">
+                    <a href="/Login" class="nav-item">Đăng nhập</a>
+                    <a href="/Register" class="nav-item">Đăng ký tài khoản</a>
+
+                    <!-- Menu Dropdown -->
+                    <div class="nav-dropdown" id="navDropdown">
+                        <button class="nav-item dropdown-toggle" id="menuToggle">Menu</button>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="/Login" class="dropdown-item">Đăng nhập</a>
+                            <a href="/Register" class="dropdown-item">Đăng ký tài khoản</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="foodzero-footer">
+        <div class="footer-container">
+            <!-- Footer Logo -->
+            <div class="footer-logo-section">
+                <div class="footer-logo">
+                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Fork icon -->
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" />
+                        <path d="M30 70 L30 30 M30 35 Q30 25 40 25 M30 35 Q30 25 50 25 M50 70 L50 30 M50 35 Q50 25 60 25 M50 35 Q50 25 70 25 M70 70 L70 30" stroke="currentColor" stroke-width="2" fill="none" />
+                    </svg>
+                    <span class="logo-text">FoodZero</span>
+                </div>
+            </div>
+
+            <!-- Footer Info -->
+            <div class="footer-info-section">
+                <div class="footer-info-item">
+                    <span class="footer-label">Địa chỉ nhà hàng:</span>
+                    <span class="footer-value">123 Phố Nguyễn Quang Trường, Phường Quang Trường, TP. Hà Nội</span>
+                </div>
+                <div class="footer-info-item">
+                    <span class="footer-label">SĐT:</span>
+                    <span class="footer-value">0865839487</span>
+                </div>
+                <div class="footer-info-item">
+                    <span class="footer-label">Email:</span>
+                    <span class="footer-value">truongnq20102003@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- FoodZero Navbar Script -->
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const menuToggle = document.getElementById('menuToggle');
+                const dropdownMenu = document.getElementById('dropdownMenu');
+                const navDropdown = document.getElementById('navDropdown');
+                let dropdownTimeout;
+
+                // Mở dropdown khi click vào Menu
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdownMenu.classList.toggle('show');
+                });
+
+                // Mở dropdown khi hover vào nav-dropdown
+                navDropdown.addEventListener('mouseenter', function() {
+                    clearTimeout(dropdownTimeout);
+                    dropdownMenu.classList.add('show');
+                });
+
+                // Đóng dropdown khi hover ra khỏi nav-dropdown (sau 200ms)
+                navDropdown.addEventListener('mouseleave', function() {
+                    dropdownTimeout = setTimeout(function() {
+                        dropdownMenu.classList.remove('show');
+                    }, 200);
+                });
+
+                // Đóng dropdown khi click vào item
+                const dropdownItems = document.querySelectorAll('.dropdown-item');
+                dropdownItems.forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        dropdownMenu.classList.remove('show');
+                    });
+                });
+
+                // Đóng dropdown khi click ở ngoài
+                document.addEventListener('click', function(e) {
+                    if (!navDropdown.contains(e.target)) {
+                        dropdownMenu.classList.remove('show');
+                    }
+                });
+            });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

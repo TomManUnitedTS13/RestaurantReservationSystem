@@ -1,0 +1,235 @@
+﻿/* ============ REGISTER PAGE STYLING ============ */
+.register-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.register-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============ REGISTER BOX ============ */
+.register-box {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 700px;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.register-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #404924;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 1.5px;
+}
+
+/* ============ FORM STYLING ============ */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #404924;
+}
+
+.form-control {
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        background-color: white;
+        box-shadow: 0 0 0 3px rgba(64, 73, 36, 0.1);
+    }
+
+    .form-control::placeholder {
+        color: #999;
+    }
+
+/* ============ REGISTER BUTTON ============ */
+.register-button {
+    padding: 14px 20px;
+    background-color: #404924;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+    align-self: center;
+    min-width: 200px;
+}
+
+    .register-button:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(64, 73, 36, 0.3);
+    }
+
+    .register-button:active {
+        transform: translateY(0);
+    }
+
+    .register-button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+/* ============ LOGIN LINK ============ */
+.login-link {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+}
+
+    .login-link p {
+        font-size: 14px;
+        color: #404924;
+        margin: 0;
+    }
+
+    .login-link a {
+        color: #404924;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .login-link a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+@media (max-width: 768px) {
+    .register-box {
+        padding: 40px 30px;
+    }
+
+    .register-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form-control {
+        padding: 11px 14px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    .register-button {
+        min-width: 150px;
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-section {
+        padding: 20px 15px;
+    }
+
+    .register-box {
+        padding: 30px 20px;
+        border-radius: 0;
+    }
+
+    .register-title {
+        font-size: 22px;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+    }
+
+    .form-row {
+        gap: 15px;
+    }
+
+    .form-group {
+        gap: 5px;
+    }
+
+    .form-label {
+        font-size: 13px;
+    }
+
+    .form-control {
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+
+    .register-button {
+        min-width: 120px;
+        padding: 11px 20px;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+
+    .login-link {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+        .login-link p {
+            font-size: 13px;
+        }
+}

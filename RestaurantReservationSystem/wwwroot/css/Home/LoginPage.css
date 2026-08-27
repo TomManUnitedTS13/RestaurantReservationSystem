@@ -1,0 +1,273 @@
+﻿/* ============ LOGIN PAGE STYLING ============ */
+.login-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.login-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ============ LOGIN BOX ============ */
+.login-box {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 420px;
+    animation: slideInUp 0.6s ease-out;
+}
+
+.login-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #404924;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* ============ FORM STYLING ============ */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #404924;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-control {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(64, 73, 36, 0.1);
+        background-color: #fafafa;
+    }
+
+    .form-control::placeholder {
+        color: #999;
+    }
+
+/* ============ FORM OPTIONS (Remember + Forgot Password) ============ */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+    .remember-me input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        accent-color: var(--primary-color);
+    }
+
+    .remember-me label {
+        cursor: pointer;
+        color: #555;
+        margin: 0;
+    }
+
+.forgot-password {
+    color: #404924;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+    .forgot-password:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+    }
+
+/* ============ LOGIN BUTTON ============ */
+.login-button {
+    padding: 14px 20px;
+    background-color: #404924;
+    color: white; 
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
+    .login-button:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(64, 73, 36, 0.3);
+    }
+
+    .login-button:active {
+        transform: translateY(0);
+    }
+
+    .login-button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+/* ============ SIGNUP LINK ============ */
+.signup-link {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+    .signup-link p {
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+    }
+
+    .signup-link a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .signup-link a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+/* ============ ANIMATIONS ============ */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+@media (max-width: 768px) {
+    .login-section {
+        min-height: auto;
+        padding: 20px 0;
+    }
+
+    .login-box {
+        padding: 40px 30px;
+        max-width: 100%;
+    }
+
+    .login-title {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .form-control {
+        padding: 11px 14px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    .login-button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 30px 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .login-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        gap: 6px;
+    }
+
+    .form-label {
+        font-size: 12px;
+    }
+
+    .form-control {
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .login-button {
+        padding: 11px 20px;
+        font-size: 13px;
+    }
+
+    .signup-link {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+
+        .signup-link p {
+            font-size: 13px;
+        }
+}

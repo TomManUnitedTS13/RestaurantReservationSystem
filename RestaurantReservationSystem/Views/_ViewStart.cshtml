@@ -1,0 +1,20 @@
+﻿@{
+    // Lấy user hiện tại
+    var user = User;
+
+    // Nếu user đã đăng nhập và có role Customer, dùng layout customer
+    if (user.Identity.IsAuthenticated && user.IsInRole("Customer"))
+    {
+        Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    }
+    // Nếu user có role Admin hoặc Staff, dùng layout riêng (tạo sau)
+    else if (user.Identity.IsAuthenticated && (user.IsInRole("Admin") || user.IsInRole("Staff")))
+    {
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+    // Nếu chưa đăng nhập, dùng layout gốc
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutOriginal.cshtml";
+    }
+}

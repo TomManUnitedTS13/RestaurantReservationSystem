@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FoodZero</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RestaurantReservationSystem.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/LayoutCustomer/navbarCustomer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/LayoutCustomer/footer.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <header>
+        <nav class="foodzero-navbar-customer">
+            <div class="navbar-customer-container">
+                <!-- Logo FoodZero -->
+                <div class="navbar-logo">
+                    <a href="/" class="logo-link">
+                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" />
+                            <path d="M30 70 L30 30 M30 35 Q30 25 40 25 M30 35 Q30 25 50 25 M50 70 L50 30 M50 35 Q50 25 60 25 M50 35 Q50 25 70 25 M70 70 L70 30" stroke="currentColor" stroke-width="2" fill="none" />
+                        </svg>
+                        <span class="logo-text">FoodZero</span>
+                    </a>
+                </div>
+
+                <!-- Right Side - Booking Button + User Dropdown -->
+                <div class="navbar-right-items">
+                    <a href="#booking" class="booking-button">Đặt bàn</a>
+
+                    <!-- User Dropdown -->
+                    <div class="user-dropdown" id="userDropdown">
+                        <button class="user-avatar-btn" id="userAvatarBtn">
+                            <img src="https://via.placeholder.com/40" alt="User Avatar" class="user-avatar">
+                        </button>
+                        <div class="user-menu" id="userMenu">
+                            <a href="#profile" class="user-menu-item">Thông tin cá nhân</a>
+                            <a href="#booking-history" class="user-menu-item">Lịch sử đặt bàn</a>
+                            <a href="#notifications" class="user-menu-item">Danh sách thông báo</a>
+                            <a href="#delete-account" class="user-menu-item delete-item">Xóa tài khoản</a>
+                            <a href="#logout" class="user-menu-item logout-item">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="foodzero-footer">
+        <div class="footer-container">
+            <!-- Footer Logo -->
+            <div class="footer-logo-section">
+                <div class="footer-logo">
+                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" />
+                        <path d="M30 70 L30 30 M30 35 Q30 25 40 25 M30 35 Q30 25 50 25 M50 70 L50 30 M50 35 Q50 25 60 25 M50 35 Q50 25 70 25 M70 70 L70 30" stroke="currentColor" stroke-width="2" fill="none" />
+                    </svg>
+                    <span class="logo-text">FoodZero</span>
+                </div>
+            </div>
+
+            <!-- Footer Info -->
+            <div class="footer-info-section">
+                <div class="footer-info-item">
+                    <span class="footer-label">Địa chỉ nhà hàng:</span>
+                    <span class="footer-value">123 Phố Nguyễn Quang Trường, Phường Quang Trường, TP. Hà Nội</span>
+                </div>
+                <div class="footer-info-item">
+                    <span class="footer-label">SĐT:</span>
+                    <span class="footer-value">0865839487</span>
+                </div>
+                <div class="footer-info-item">
+                    <span class="footer-label">Email:</span>
+                    <span class="footer-value">truongng20102003@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Customer Navbar Script -->
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const userAvatarBtn = document.getElementById('userAvatarBtn');
+                const userMenu = document.getElementById('userMenu');
+                const userDropdown = document.getElementById('userDropdown');
+                let menuTimeout;
+
+                // Mở/đóng menu khi click vào avatar
+                userAvatarBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    userMenu.classList.toggle('show');
+                });
+
+                // Mở menu khi hover
+                userDropdown.addEventListener('mouseenter', function() {
+                    clearTimeout(menuTimeout);
+                    userMenu.classList.add('show');
+                });
+
+                // Đóng menu khi hover ra
+                userDropdown.addEventListener('mouseleave', function() {
+                    menuTimeout = setTimeout(function() {
+                        userMenu.classList.remove('show');
+                    }, 200);
+                });
+
+                // Đóng menu khi click vào item
+                const menuItems = document.querySelectorAll('.user-menu-item');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        userMenu.classList.remove('show');
+                    });
+                });
+
+                // Đóng menu khi click ở ngoài
+                document.addEventListener('click', function(e) {
+                    if (!userDropdown.contains(e.target)) {
+                        userMenu.classList.remove('show');
+                    }
+                });
+            });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

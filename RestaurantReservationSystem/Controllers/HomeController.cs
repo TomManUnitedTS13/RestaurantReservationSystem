@@ -1,0 +1,14 @@
+using Microsoft.AspNetCore.Mvc;
+using RestaurantReservationSystem.Models;
+using System.Diagnostics;
+
+namespace RestaurantReservationSystem.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View("~/Views/Home/Home.cshtml");
+        }
+    }
+}
