@@ -2,11 +2,11 @@
 
 namespace RestaurantReservationSystem.Controllers
 {
-    public class LoginController
+    public class LoginController : Controller   
     {
-        public IActionResult Index()
+        public IActionResult Index()            
         {
-            return new ViewResult { ViewName = "~/Views/Login/Login.cshtml" };
+            return View("~/Views/Login/Login.cshtml");
         }
 
     }
