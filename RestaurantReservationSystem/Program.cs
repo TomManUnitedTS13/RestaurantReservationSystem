@@ -1,3 +1,5 @@
+using RestaurantReservationSystem.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,10 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 builder.Services.AddAuthorization();
+builder.Services.AddDbContext<RestaurantReservationSystemDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MyDatabase"));
+});
 
 var app = builder.Build();
 

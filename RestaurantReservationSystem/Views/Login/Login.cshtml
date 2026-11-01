@@ -1,56 +1,54 @@
 ﻿@{
     ViewData["Title"] = "Đăng nhập";
 }
-@section Scripts {
+@section Styles {
     <link rel="stylesheet" href="~/css/Home/LoginPage.css" asp-append-version="true" />
 }
 <div class="login-section">
-    <div class="login-overlay">
-        <div class="login-container">
-            <!-- Login Box -->
-            <div class="login-box">
-                <h1 class="login-title">ĐĂNG NHẬP</h1>
+    <div class="login-container">
+        <!-- Login Box -->
+        <div class="login-box">
+            <h1 class="login-title">ĐĂNG NHẬP</h1>
 
-                <form class="login-form" method="post" action="/login">
-                    <!-- Phone Number Input -->
-                    <div class="form-group">
-                        <label for="phone" class="form-label">Số điện thoại</label>
-                        <input type="tel"
-                               id="phone"
-                               name="phone"
-                               class="form-control"
-                               placeholder="Nhập số điện thoại của bạn"
-                               required>
-                    </div>
-
-                    <!-- Password Input -->
-                    <div class="form-group">
-                        <label for="password" class="form-label">Mật khẩu</label>
-                        <input type="password"
-                               id="password"
-                               name="password"
-                               class="form-control"
-                               placeholder="Nhập mật khẩu của bạn"
-                               required>
-                    </div>
-
-                    <!-- Remember Me & Forgot Password -->
-                    <div class="form-options">
-                        <div class="remember-me">
-                            <input type="checkbox" id="remember" name="remember" value="true">
-                            <label for="remember">Ghi nhớ đăng nhập</label>
-                        </div>
-                        <a href="/Forgot-Password" class="forgot-password">Quên mật khẩu?</a>
-                    </div>
-
-                    <!-- Login Button -->
-                    <button type="submit" class="login-button">ĐĂNG NHẬP</button>
-                </form>
-
-                <!-- Sign Up Link -->
-                <div class="signup-link">
-                    <p>Chưa có tài khoản? <a href="#signup">Đăng ký ngay</a></p>
+            <form class="login-form" method="post" action="/login">
+                <!-- Phone Number Input -->
+                <div class="form-group">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input type="tel"
+                           id="phone"
+                           name="phone"
+                           class="form-control"
+                           placeholder="Nhập số điện thoại của bạn"
+                           required>
                 </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           class="form-control"
+                           placeholder="Nhập mật khẩu của bạn"
+                           required>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember" value="true">
+                        <label for="remember">Ghi nhớ đăng nhập</label>
+                    </div>
+                    <a href="/Forgot-Password" class="forgot-password">Quên mật khẩu?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="login-button">ĐĂNG NHẬP</button>
+            </form>
+
+            <!-- Sign Up Link -->
+            <div class="signup-link">
+                <p>Chưa có tài khoản? <a href="#signup">Đăng ký ngay</a></p>
             </div>
         </div>
     </div>
